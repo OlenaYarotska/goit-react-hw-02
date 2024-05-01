@@ -21,17 +21,11 @@ function App() {
 	}, [feedbackType]);
 
 	const updateFeedback = feedbackType => {
-		setFeedbackType(prevState => {
-			if (feedbackType === 'good') {
-		return {...prevState, good: prevState.good + 1}
-			} else if (feedbackType === 'neutral') {
-				return { ...prevState, neutral: prevState.neutral + 1 }
-			} else if (feedbackType === 'bad') {
-				return { ...prevState, bad: prevState.bad + 1 }
-			}
-			return prevState;
-		})
+		setFeedbackType((prevState) => {
+			return { ...prevState, [feedbackType]: prevState[feedbackType] + 1 };
+			})
 	}
+	
 	const totalFeedback = feedbackType.good + feedbackType.neutral + feedbackType.bad;
 	const positiveFeedback = Math.round((feedbackType.good / totalFeedback) * 100);
 	
