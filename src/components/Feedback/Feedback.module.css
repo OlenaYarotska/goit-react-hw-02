@@ -1,0 +1,9 @@
+.item {
+    font-size: 18px;
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+}
+.itemProperty {
+margin-left: 3px;
+}
